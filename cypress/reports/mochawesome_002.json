@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-18T15:27:45.767Z",
+    "end": "2025-04-18T15:27:58.528Z",
+    "duration": 12761,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4c97f492-4822-4270-b04c-c0f448962ed4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\filter.cy.js",
+      "file": "cypress\\e2e\\filter.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "507fb262-e0c9-4429-a9de-71f2f851d2ae",
+          "title": "Product Filtering - Low to High",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Applies Low to High filter, checks order, and logs product names",
+              "fullTitle": "Product Filtering - Low to High Applies Low to High filter, checks order, and logs product names",
+              "timedOut": null,
+              "duration": 12678,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.product_sort_container').select('lohi');\ncy.wait(500);\ncy.get('.inventory_item_price').then($prices => {\n  const priceValues = [...$prices].map(el => parseFloat(el.innerText.replace('$', '')));\n  const sortedPrices = [...priceValues].sort((a, b) => a - b);\n  expect(priceValues).to.deep.equal(sortedPrices);\n  console.log('✅ Prices are sorted Low to High:', priceValues);\n});\ncy.get('.inventory_item_name').then($names => {\n  const productNames = [...$names].map(el => el.innerText.trim());\n  console.log('📦 Products after Low to High sorting:');\n  productNames.forEach((name, index) => {\n    console.log(`${index + 1}. ${name}`);\n  });\n});",
+              "err": {},
+              "uuid": "d3ae6ffe-558f-47ee-8d8a-38eb1f97dcd9",
+              "parentUUID": "507fb262-e0c9-4429-a9de-71f2f851d2ae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d3ae6ffe-558f-47ee-8d8a-38eb1f97dcd9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12678,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "charts": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
