@@ -83,8 +83,8 @@ Automate and validate the following key functionalities on the Swag Labs website
 
 ```bash
 # Step 1: Clone the project
-git clone https://github.com/your-org/swag-labs-automation.git
-cd swag-labs-automation
+git clone https://github.com/Sanchit-chitke/https---github.com-Sanchit-chitke-Test-Automation.git
+
 
 # Step 2: Install Cypress and dependencies
 npm install
